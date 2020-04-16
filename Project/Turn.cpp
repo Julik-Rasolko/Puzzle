@@ -11,7 +11,7 @@ bool Turn(){
     std::cout << "Please choose a place. Its number (now any number you with) : ";
     std::cin >> pos;
     tile->Put(pos);
-    delete factory;
     delete tile;
+    delete factory;
     return true;
 }
