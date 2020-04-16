@@ -2,38 +2,48 @@
 #include "Turn.h"
 
 TEST(test1, testing_Tile_C1){
-    Tile_factory factory;
-    Tile* tile = factory.Create_tile("Tile_C1");
+    Tile_factory* factory = new Tile_factory;
+    Tile* tile = factory->Create_tile("Tile_C1");
     std::string str = tile->Get_appearance()[1];
     EXPECT_TRUE(str == "|\\CT /|");
+    delete factory;
+    delete tile;
 }
 
 TEST(test2, testing_Tile_C2){
-    Tile_factory factory;
-    Tile* tile = factory.Create_tile("Tile_C2");
+    Tile_factory* factory = new Tile_factory;
+    Tile* tile = factory->Create_tile("Tile_C2");
     std::string str = tile->Get_appearance()[4];
     EXPECT_TRUE(str == "| /C\\ |");
+    delete factory;
+    delete tile;
 }
 
 TEST(test3, testing_Tile_C3){
-    Tile_factory factory;
-    Tile* tile = factory.Create_tile("Tile_C3");
+    Tile_factory* factory = new Tile_factory;
+    Tile* tile = factory->Create_tile("Tile_C3");
     std::string str = tile->Get_appearance()[3];
     EXPECT_TRUE(str == "|CT|  |");
+    delete factory;
+    delete tile;
 }
 
 TEST(test4, testing_Tile_C4){
-    Tile_factory factory;
-    Tile* tile = factory.Create_tile("Tile_C4");
+    Tile_factory* factory = new Tile_factory;
+    Tile* tile = factory->Create_tile("Tile_C4");
     std::string str = tile->Get_appearance()[3];
     EXPECT_TRUE(str == "|  |CT|");
+    delete factory;
+    delete tile;
 }
 
 TEST(test5, testing_Rand_Tile){
     Tile_factory* factory = new Tile_factory;
-    Tile* tile = factory->Create_tile(Tile_types[rand()%Num_of_tile_types]);
-    string str = tile->Get_appearance()[5];
+    Tile* tile = factory->Create_tile(factory->Catalogue()[rand()%factory->Catalogue_size()]);
+    std::string str = tile->Get_appearance()[5];
     EXPECT_TRUE((str == "|_____|")||(str == "|/___\\|")||(str == "|/____|")||(str == "|____\\|"));
+    delete factory;
+    delete tile;
 }
 
 TEST(test6, testing_Turn_is_working){

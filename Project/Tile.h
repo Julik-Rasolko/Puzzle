@@ -6,9 +6,9 @@
 
 class Tile{
 public:
-    virtual vector<string> Get_appearance () const = 0;
+    virtual std::vector<std::string> Get_appearance () const = 0;
     virtual void Put (const int position) = 0;
 protected:
-    static vector<string> appearance;
+    static std::vector<std::string> appearance;
     int position = NULL;
 } ;
