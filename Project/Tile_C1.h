@@ -7,7 +7,7 @@
 class Tile_C1: public Tile{
 public:
     std::vector<std::string> Get_appearance () const;
-    void Put (const int pos);
+    bool Put (const int pos);
 protected:
     static std::vector<std::string> appearance;
     int position = NULL;

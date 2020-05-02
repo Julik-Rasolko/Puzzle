@@ -4,4 +4,4 @@
 #include "Tile_factory.h"
 
 
-bool Turn();
+bool Turn(Tile_factory* factory);
