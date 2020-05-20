@@ -3,7 +3,6 @@
 
 bool Turn(Tile_factory* factory){
     Table* table = Table::Get_table();
-    table->Print();
     std::string tile_type = factory->Catalogue()[rand()%factory->Catalogue_size()];
     Tile* tile = factory->Create_tile(tile_type);
     std::cout << std::endl << "You need to put: " << std::endl;
@@ -18,6 +17,7 @@ bool Turn(Tile_factory* factory){
         std::cout << "You can't put this tile here. Please choose another place. Its number: ";
         std::cin >> pos;
     }
+    table->Print();
     delete tile;
     return true;
 }
