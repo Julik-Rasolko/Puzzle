@@ -16,6 +16,7 @@ set(HEADERS Global.h
             Tile_C2.h
             Tile_C3.h
             Tile_C4.h
+            Table.h
 )
 
 set(SOURCES Turn.cpp
@@ -24,6 +25,7 @@ set(SOURCES Turn.cpp
             Tile_C2.cpp
             Tile_C3.cpp
             Tile_C4.cpp
+            Table.cpp
 )
 
 add_executable(Puzzle main.cpp ${HEADERS} ${SOURCES})

@@ -46,6 +46,20 @@ TEST(test5, testing_Rand_Tile){
     delete factory;
 }
 
-TEST(test6, testing_Turn_is_working){
-    EXPECT_TRUE(Turn());
+TEST(test6, testing_table_being_singleton){
+    Table* table1 = Table::Get_table();
+    Table* table2 = Table::Get_table();
+    EXPECT_TRUE(table1 == table2);
+    delete table2;
+}
+
+TEST(test7, testing_putting_on_table){
+    Table* table = Table::Get_table();
+    Tile_factory* factory = new Tile_factory;
+    EXPECT_TRUE(table->Can_put("Tile_C1"));
+    Tile* tile = factory->Create_tile("Tile_C1");
+    EXPECT_TRUE(tile->Put(1));
+    delete tile;
+    delete factory;
+    delete table;
 }
