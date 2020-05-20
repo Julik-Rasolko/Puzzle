@@ -1,18 +1,19 @@
-#include "Turn.h"
+#include "GameInterface.h"
 
 
 int main()
 {
+    GameInterface* game = new GameInterface(new Tile_factory(), new WinPrinter());
     Table* table = Table::Get_table();
-    Tile_factory* factory = new Tile_factory;
+    table->Print();
     srand(time(NULL));
     for (int i = 0; i < 32; ++i)
-        if(!Turn(factory)){
-            std::cout << "..." << std::endl << "You know..." << std::endl
-                       << "It's actually imposible. I'm Sorry." << std::endl << "You LOST" << std::endl;
+        if(!game->turn()){
+            game->set_printer(new LosePrinter());
             break;
         }
-    delete factory;
+    game->end_game();
     delete table;
+    delete game;
     return 0;
 }
