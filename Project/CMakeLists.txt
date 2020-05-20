@@ -9,7 +9,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 set(HEADERS Global.h
-            Turn.h
+            GameInterface.h
             Tile_factory.h
             Tile.h
             Tile_C1.h
@@ -17,15 +17,17 @@ set(HEADERS Global.h
             Tile_C3.h
             Tile_C4.h
             Table.h
+            Printers.h
 )
 
-set(SOURCES Turn.cpp
+set(SOURCES GameInterface.cpp
             Tile_factory.cpp
             Tile_C1.cpp
             Tile_C2.cpp
             Tile_C3.cpp
             Tile_C4.cpp
             Table.cpp
+            Printers.cpp
 )
 
 add_executable(Puzzle main.cpp ${HEADERS} ${SOURCES})

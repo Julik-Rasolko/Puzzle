@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "Turn.h"
+#include "GameInterface.h"
 
 TEST(test1, testing_Tile_C1){
     Tile_factory* factory = new Tile_factory;
@@ -37,7 +37,7 @@ TEST(test4, testing_Tile_C4){
     delete factory;
 }
 
-TEST(test5, testing_Rand_Tile){
+TEST(test5, testing_rand_tile){
     Tile_factory* factory = new Tile_factory;
     Tile* tile = factory->Create_tile(factory->Catalogue()[rand()%factory->Catalogue_size()]);
     std::string str = tile->Get_appearance()[5];
@@ -63,3 +63,4 @@ TEST(test7, testing_putting_on_table){
     delete factory;
     delete table;
 }
+
